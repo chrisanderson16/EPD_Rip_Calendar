@@ -38,5 +38,8 @@ A simple test to understand how *os.path.join* and other os functions and classe
 **png-to-bmp.py**
 Essentially a more clear cut version of *color_test.py*, however, it needs to be updated. <br />
 **text.txt**
-Used to pipe the printouts to be examined when needed. Later on needs to be integrated as an actual log system rather than just > text.txt.<br />
+Used to pipe the printouts to be examined when needed. Later on needs to be integrated as an actual log system rather than just > text.txt.<br /> <br />
+
+**text-n-img-EPD.py**
+This script is being used to test how to "draw" on images.
 
