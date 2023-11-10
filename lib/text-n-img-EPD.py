@@ -50,7 +50,58 @@ try:
 
     font48 = ImageFont.truetype(os.path.join(fontdir, 'FinkHeavy.ttf'), 48)
     font72 = ImageFont.truetype(os.path.join(fontdir, 'FinkHeavy.ttf'), 72)
-    """
+
+    logging.info("Displaying day, month and date with thumbnail")
+
+
+    background_w_thumbnail_blk = Image.open(os.path.join(picdir, 'color_test_black.bmp'))
+    background_w_thumbnail_red = Image.open(os.path.join(picdir, 'color_test_red.bmp'))
+
+    draw_blk = ImageDraw.Image(background_w_thumbnail_blk)
+    draw_red = ImageDraw.Image(background_w_thumbnail_red)
+
+
+# This will display the day, month and date of any day of the year
+
+        # Month Date
+    draw_blk.text((10, 90), date.strftime("%B %-d"), font = font48, fill = 0)
+        # Day of the week
+    draw_red.text((10, 10), date.strftime("%A"), font = font72, fill = 0)
+
+    epd.display(epd.getbuffer(draw_blk),epd.getbuffer(draw_red))
+    time.sleep(5)
+
+
+#    logging.info("Clear...")
+#    epd.init()
+#    epd.Clear()
+
+    logging.info("Goto Sleep...")
+    epd.sleep()
+    
+except IOError as e:
+    logging.info(e)
+    
+except KeyboardInterrupt:    
+    logging.info("ctrl + c:")
+    epd7in5b_V2.epdconfig.module_exit()
+    exit()
+
+
+
+
+
+"""
+    logging.info("epd7in5b_V2 Demo")
+
+    epd = epd7in5b_V2.EPD()
+    logging.info("init and Clear")
+    epd.init()
+    epd.Clear()
+
+    font48 = ImageFont.truetype(os.path.join(fontdir, 'FinkHeavy.ttf'), 48)
+    font72 = ImageFont.truetype(os.path.join(fontdir, 'FinkHeavy.ttf'), 72)
+
     # Drawing on the Horizontal image
     logging.info("1.Drawing on the Horizontal image...")
     Himage = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
@@ -90,7 +141,7 @@ try:
     draw_Himage.chord((70, 150, 120, 200), 0, 360, fill = 0)
     epd.display(epd.getbuffer(Limage), epd.getbuffer(Limage_Other))
     time.sleep(2)
-    """
+
     logging.info("3. Reading Custom BMP files")
 
 # This will display the day, month and date of any day of the year
@@ -110,7 +161,7 @@ try:
 
 
 
-    """
+
     with Image.open(os.path.join(picdir, 'jan2.bmp')).convert("RGBA") as base:
 
         text = Image.new("RGBA", base.size, (255,255,255,0))
@@ -135,7 +186,7 @@ try:
     Himage2_Other.paste(bmp, (50,300))
     epd.display(epd.getbuffer(Himage2), epd.getbuffer(Himage2_Other))
     time.sleep(2)
-    """
+
 #    logging.info("Clear...")
 #    epd.init()
 #    epd.Clear()
@@ -150,3 +201,11 @@ except KeyboardInterrupt:
     logging.info("ctrl + c:")
     epd7in5b_V2.epdconfig.module_exit()
     exit()
+
+
+
+
+
+
+
+"""
