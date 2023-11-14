@@ -105,7 +105,7 @@ try:
     draw_blk = ImageDraw.Draw(background_w_thumbnail_blk)
     draw_red = ImageDraw.Draw(background_w_thumbnail_red)
 
-    draw_blk.text((15,15), "Hellow world!", (0, 0, 0, 255), font=font48)
+    draw_blk.text((15,15), "Hellow world!", (255,0,0), font=font48)
     
     epd.display(epd.getbuffer(draw_blk), epd.getbuffer(draw_red))
 
