@@ -38,6 +38,11 @@ logging.basicConfig(level=logging.DEBUG)
 ##########################################################################################################################################
 ########################################################################################################################################## 
 
+def runAPI(file_path):
+    try:
+        os.system(f'python3 {os.path.join(file_path)}')
+    except FileNotFoundError:
+        print(f"Error: The file '{file_path}' does not exist.\r\n")
 
 
 
@@ -63,13 +68,13 @@ try:
         # Day of the week
     draw_other.text((10, 10), date.strftime("%A"), font = font72, fill = 0)
     """
-
+    runAPI('color_test.py')
 
     logging.info("Displaying day, month and date with thumbnail")
 
 
     background_w_thumbnail_blk = Image.open(os.path.join(picdir, 'color_test_black.bmp'))
-    background_w_thumbnail_red = Image.open(os.path.join(picdir, 'NULL_COLOUR.bmp'))
+    background_w_thumbnail_red = Image.open(os.path.join(picdir, 'color_test_black.bmp'))
 
     draw_blk = ImageDraw.Draw(background_w_thumbnail_blk)
     draw_red = ImageDraw.Draw(background_w_thumbnail_red)
