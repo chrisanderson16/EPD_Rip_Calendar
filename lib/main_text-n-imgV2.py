@@ -72,12 +72,15 @@ try:
         txt = Image.new("RGBA", base.size, (255,255,255,0))
     d = ImageDraw.Draw(txt)
 
+    blankred = Image.open(os.path.join(picdir, 'color_test_black.bmp')).convert("RGBA")
+    blankred2 = ImageDraw.Draw(blankred)
+
     d.text((10,10), "Hello", font=font48, fill=(255,255,255,128))
     d.text((10,100), "World", font=font48, fill=(255,255,255,128))
 
     out = Image.alpha_composite(base, txt)
 
-    epd.display(epd.getbuffer(out),epd.getbuffer('NULL_COLOUR.bmp'))
+    epd.display(epd.getbuffer(out),epd.getbuffer(blankred2))
     time.sleep(5)
 
 
