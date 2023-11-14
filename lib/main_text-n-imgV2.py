@@ -105,20 +105,9 @@ try:
     draw_blk = ImageDraw.Draw(background_w_thumbnail_blk)
     draw_red = ImageDraw.Draw(background_w_thumbnail_red)
 
-    img_blank = Image.new("RGBA",img_size, (255,255,255,0))
-    draw_txt = ImageDraw.Draw(img_blank)
-
-    draw_txt.text((10,10), "Hello world!", font=font48, fill=0)
+    draw_blk.text((15,15), "Hellow world!", (0, 0, 0, 255), font=font48)
     
-# This will display the day, month and date of any day of the year
-
-        # Month Date
-    #draw_blk.text((10, 90), date.strftime("%B %-d"), font = font48, fill = 0)
-        # Day of the week
-    #draw_red.text((10, 10), date.strftime("%A"), font = font72, fill = 0)
-    background_w_thumbnail_blk.paste(draw_txt)
-
-    epd.display(epd.getbuffer(background_w_thumbnail_blk), epd.getbuffer(draw_red))
+    epd.display(epd.getbuffer(draw_blk), epd.getbuffer(draw_red))
 
     time.sleep(5)
 
