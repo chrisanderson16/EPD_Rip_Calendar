@@ -52,38 +52,7 @@ try:
     font48 = ImageFont.truetype(os.path.join(fontdir, 'FinkHeavy.ttf'), 48)
     font72 = ImageFont.truetype(os.path.join(fontdir, 'FinkHeavy.ttf'), 72)
 
-    logging.info("Displaying day, month and date with thumbnail")
-
     """
-    background_w_thumbnail_blk = Image.open(os.path.join(picdir, 'color_test_black.bmp'))
-    
-
-    draw_blk = ImageDraw.Draw(background_w_thumbnail_blk)
-    
-    
-
-# This will display the day, month and date of any day of the year
-
-        # Month Date
-    draw_blk.text((10, 90), date.strftime("%B %-d"), font = font48, fill = 0)
-        # Day of the week
-
-    background_w_thumbnail_red = Image.open(os.path.join(picdir, 'NULL_COLOUR.bmp'))
-    draw_red = ImageDraw.Draw(background_w_thumbnail_red)
-    draw_red.text((10, 10), date.strftime("%A"), font = font72, fill = 0)
-
-    
-
-# This part is from myCustomEPD.py    
-    Himage = Image.open(os.path.join(picdir, 'color_test_black.bmp'))
-#    Himage_Other = Image.open(os.path.join(picdir, '7in5_V2_r.bmp'))
-    Himage_Other = Image.open(os.path.join(picdir, 'color_test_red.bmp'))
-    epd.display(epd.getbuffer(Himage), epd.getbuffer(Himage_Other))
-
-
-
-
-# This part is from myCustomEPD-02.py
     Himage = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
     Other = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
     draw_Himage = ImageDraw.Draw(Himage)
@@ -93,10 +62,11 @@ try:
     draw_Himage.text((10, 90), date.strftime("%B %-d"), font = font48, fill = 0)
         # Day of the week
     draw_other.text((10, 10), date.strftime("%A"), font = font72, fill = 0)
-
-    epd.display(epd.getbuffer(Himage),epd.getbuffer(Other))
-    time.sleep(5)
     """
+
+
+    logging.info("Displaying day, month and date with thumbnail")
+
     img_size = (epd.width,epd.height)
 
     background_w_thumbnail_blk = Image.open(os.path.join(picdir, 'color_test_black.bmp'))
@@ -109,12 +79,17 @@ try:
 
     background_w_thumbnail_blk.save(os.path.join(picdir, 'final.bmp'))
     
-    img = Image.open(os.path.join(picdir, 'final.bmp'))
-    draw_img = ImageDraw.Draw(img)
+    #img = Image.open(os.path.join(picdir, 'final.bmp'))
+    #draw_img = ImageDraw.Draw(img)
 
-    epd.display(epd.getbuffer(img), epd.getbuffer(background_w_thumbnail_red))
+    #epd.display(epd.getbuffer(img), epd.getbuffer(background_w_thumbnail_red))
+    epd.display(epd.getbuffer(background_w_thumbnail_blk), epd.getbuffer(background_w_thumbnail_red))
+
 
     time.sleep(5)
+
+
+
 
 
 #    logging.info("Clear...")
