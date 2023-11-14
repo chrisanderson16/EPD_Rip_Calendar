@@ -112,7 +112,7 @@ try:
     img = Image.open(os.path.join(picdir, 'final.bmp'))
     draw_img = ImageDraw.Draw(img)
 
-    epd.display(epd.getbuffer(draw_img), epd.getbuffer(draw_red))
+    epd.display(epd.getbuffer(img), epd.getbuffer(background_w_thumbnail_red))
 
     time.sleep(5)
 
