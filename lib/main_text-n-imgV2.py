@@ -105,13 +105,14 @@ try:
     draw_blk = ImageDraw.Draw(background_w_thumbnail_blk)
     draw_red = ImageDraw.Draw(background_w_thumbnail_red)
 
-    draw_blk.text((15,15), "Hellow world!", (255,0,0), font=font48)
+    draw_blk.text((15,15), "Hellow world!", font=font48, fill=0)
 
     draw_blk.save("final.bmp")
     
     img = Image.open(os.path.join(picdir, 'final.bmp'))
+    draw_img = ImageDraw.Draw(img)
 
-    epd.display(epd.getbuffer(img), epd.getbuffer(draw_red))
+    epd.display(epd.getbuffer(draw_img), epd.getbuffer(draw_red))
 
     time.sleep(5)
 
