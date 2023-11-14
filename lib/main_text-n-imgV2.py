@@ -56,10 +56,10 @@ try:
 
     """
     background_w_thumbnail_blk = Image.open(os.path.join(picdir, 'color_test_black.bmp'))
-    background_w_thumbnail_red = Image.open(os.path.join(picdir, 'color_test_red.bmp'))
+    
 
     draw_blk = ImageDraw.Draw(background_w_thumbnail_blk)
-    draw_red = ImageDraw.Draw(background_w_thumbnail_red)
+    
     
 
 # This will display the day, month and date of any day of the year
@@ -67,8 +67,11 @@ try:
         # Month Date
     draw_blk.text((10, 90), date.strftime("%B %-d"), font = font48, fill = 0)
         # Day of the week
-    draw_red.text((10, 10), date.strftime("%A"), font = font72, fill = 0)
     """
+    background_w_thumbnail_red = Image.open(os.path.join(picdir, 'NULL_COLOUR.bmp'))
+    draw_red = ImageDraw.Draw(background_w_thumbnail_red)
+    draw_red.text((10, 10), date.strftime("%A"), font = font72, fill = 0)
+  
     with Image.open(os.path.join(picdir, 'color_test_black.bmp')).convert("RGBA") as base:
         txt = Image.new("RGBA", img_size, (255,255,255,0))
     d = ImageDraw.Draw(txt)
@@ -81,7 +84,7 @@ try:
 
     out = Image.alpha_composite(base, txt)
 
-    epd.display(out,epd.getbuffer(blankred2))
+    epd.display(out,epd.getbuffer(draw_red))
     time.sleep(5)
 
 
