@@ -107,7 +107,7 @@ try:
 
     draw_blk.text((15,15), "Hellow world!", font=font48, fill=0)
 
-    draw_blk.save("final.bmp")
+    background_w_thumbnail_blk.save("final.bmp")
     
     img = Image.open(os.path.join(picdir, 'final.bmp'))
     draw_img = ImageDraw.Draw(img)
