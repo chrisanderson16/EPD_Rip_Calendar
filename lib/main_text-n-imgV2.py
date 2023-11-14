@@ -81,7 +81,7 @@ try:
 
     out = Image.alpha_composite(base, txt)
 
-    epd.display(epd.getbuffer(out),epd.getbuffer(blankred2))
+    epd.display(out,epd.getbuffer(blankred2))
     time.sleep(5)
 
 
