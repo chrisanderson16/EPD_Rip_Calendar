@@ -18,6 +18,7 @@ import API_nookipedia as nookAPI
 
 import datetime
 
+img_size = (800,480)
 date = datetime.datetime.now()
 
 logging.basicConfig(level=logging.DEBUG)
@@ -69,7 +70,7 @@ try:
     draw_red.text((10, 10), date.strftime("%A"), font = font72, fill = 0)
     """
     with Image.open(os.path.join(picdir, 'color_test_black.bmp')).convert("RGBA") as base:
-        txt = Image.new("RGBA", base.size, (255,255,255,0))
+        txt = Image.new("RGBA", img_size, (255,255,255,0))
     d = ImageDraw.Draw(txt)
 
     blankred = Image.open(os.path.join(picdir, 'color_test_black.bmp')).convert("RGBA")
