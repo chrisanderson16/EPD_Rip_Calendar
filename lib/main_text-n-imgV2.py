@@ -67,7 +67,6 @@ try:
 
     logging.info("Displaying day, month and date with thumbnail")
 
-    img_size = (epd.width,epd.height)
 
     background_w_thumbnail_blk = Image.open(os.path.join(picdir, 'color_test_black.bmp'))
     background_w_thumbnail_red = Image.open(os.path.join(picdir, 'NULL_COLOUR.bmp'))
@@ -75,9 +74,10 @@ try:
     draw_blk = ImageDraw.Draw(background_w_thumbnail_blk)
     draw_red = ImageDraw.Draw(background_w_thumbnail_red)
 
-    draw_blk.text((15,15), "Hellow world!", font=font48, fill=0)
+    draw_blk.text((10, 90), date.strftime("%B %-d"), font=font48, fill=0)
+    draw_red.text((10, 10), date.strftime("%A"), font = font72, fill = 0)
 
-    background_w_thumbnail_blk.save(os.path.join(picdir, 'final.bmp'))
+    #background_w_thumbnail_blk.save(os.path.join(picdir, 'final.bmp'))
     
     #img = Image.open(os.path.join(picdir, 'final.bmp'))
     #draw_img = ImageDraw.Draw(img)
