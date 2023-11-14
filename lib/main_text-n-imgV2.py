@@ -116,9 +116,9 @@ try:
     #draw_blk.text((10, 90), date.strftime("%B %-d"), font = font48, fill = 0)
         # Day of the week
     #draw_red.text((10, 10), date.strftime("%A"), font = font72, fill = 0)
-    draw_blk.paste(draw_txt)
+    background_w_thumbnail_blk.paste(draw_txt)
 
-    epd.display(epd.getbuffer(draw_blk), epd.getbuffer(draw_red))
+    epd.display(epd.getbuffer(background_w_thumbnail_blk), epd.getbuffer(draw_red))
 
     time.sleep(5)
 
