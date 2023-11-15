@@ -74,7 +74,7 @@ try:
 
 
     background_w_thumbnail_blk = Image.open(os.path.join(picdir, 'color_test_black.bmp'))
-    background_w_thumbnail_red = Image.open(os.path.join(picdir, 'color_test_black.bmp'))
+    background_w_thumbnail_red = Image.open(os.path.join(picdir, 'color_test_red.bmp'))
 
     draw_blk = ImageDraw.Draw(background_w_thumbnail_blk)
     draw_red = ImageDraw.Draw(background_w_thumbnail_red)
