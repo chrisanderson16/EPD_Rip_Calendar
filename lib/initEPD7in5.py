@@ -30,7 +30,7 @@
 
 import logging
 #from . import epdconfig
-import driverConfig as epdconfig
+import lib.driverConfig as epdconfig
 
 
 # Display resolution
