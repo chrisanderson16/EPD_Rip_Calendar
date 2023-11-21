@@ -9,12 +9,13 @@ fontdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__
 #    sys.path.append(libdir)
 
 import logging
-import initEPD7in5 as epd7in5b_V2
+import lib.initEPD7in5 as epd7in5b_V2
 import time
 from PIL import Image,ImageDraw,ImageFont
 import traceback
 
-import API_nookipedia as nookAPI
+import lib.API_nookipedia as nookAPI
+
 
 import datetime
 
@@ -68,7 +69,10 @@ try:
         # Day of the week
     draw_other.text((10, 10), date.strftime("%A"), font = font72, fill = 0)
     """
-    runAPI('color_test.py')
+    runAPI('lib/color_test.py')
+
+
+
 
     logging.info("Displaying day, month and date with thumbnail")
 
