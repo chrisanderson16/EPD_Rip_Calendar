@@ -105,7 +105,7 @@ def getThumbnail(json_data):
     for item in listdir_images:
          if item.startswith('img_'):
               os.remove(os.path.join(dir_img, item))
-              
+
     iteration = getNumOfBdays(json_data)
 
     if(iteration >= 1):
@@ -119,25 +119,26 @@ def getThumbnail(json_data):
     else:
         logging.info("Error getting # of birthdays/r/n")
 
+if __name__ == "__main__":
 
 #   Starts the API session
-#villager_bday = villager_bday(api_key)
+    villager_bday = villager_bday(api_key)
 
 #   This calls the getCurrCharAll func in villager_bday class
 #   It will give the character who's birthday it is today
-#parse_json_data = villager_bday.getCurrCharAll(currMonth, currDate, 'true')
+    parse_json_data = villager_bday.getCurrCharAll(currMonth, currDate, 'true')
 
 #       Example of a day (2 characters)
 #   This will give me the data I want for a given day
-#parse_json_data = villager_bday.getCurrCharAll('December', '5', 'true')
+    #parse_json_data = villager_bday.getCurrCharAll('December', '5', 'true')
 #   This prints the data to screen, or pass it to a text file to read easily
-#pp(parse_json_data)
+    pp(parse_json_data)
 
 #   This will return a list of names for a day
-#names = []
-#names = fromJSONgetName(parse_json_data)
-#print(names)
+    names = []
+    names = fromJSONgetName(parse_json_data)
+    print(names)
 
 #   This will obtain the new image file.
-#getThumbnail(parse_json_data)
+    getThumbnail(parse_json_data)
 
