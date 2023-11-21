@@ -105,15 +105,7 @@ def getThumbnail(json_data):
     for item in listdir_images:
          if item.startswith('img_'):
               os.remove(os.path.join(dir_img, item))
-
-    """
-
-    if os.path.exists(os.path.join(dir_img, 'icon0.png')):
-         os.remove(os.path.join(dir_img, 'icon0.png'))
-
-    if os.path.exists(os.path.join(dir_img, 'icon1.png')):
-         os.remove(os.path.join(dir_img, 'icon1.png'))
-    """
+              
     iteration = getNumOfBdays(json_data)
 
     if(iteration >= 1):
@@ -136,7 +128,6 @@ def getThumbnail(json_data):
 #parse_json_data = villager_bday.getCurrCharAll(currMonth, currDate, 'true')
 
 #       Example of a day (2 characters)
-
 #   This will give me the data I want for a given day
 #parse_json_data = villager_bday.getCurrCharAll('December', '5', 'true')
 #   This prints the data to screen, or pass it to a text file to read easily
